@@ -1,20 +1,25 @@
 import { Fragment } from 'react';
-import wineData from 'data/wine-data.json'
-import { groupWineByClass } from 'utils';
 import CalculationTable from 'components/CalculationTable';
+import { calculateGamma, groupWineByClass } from 'utils';
+import { WineDataExtended } from 'types';
+import wineData from 'data/wine-data.json'
 
 const App = () => {
-    const wineGroupsByClass = groupWineByClass(wineData);
+    const wineDataWithGamma: WineDataExtended[] = wineData.map(wd => ({
+        ...wd,
+        Gamma: calculateGamma(wd),
+    }));
+    const wineGroupsByClass = groupWineByClass(wineDataWithGamma);
     return (
         <Fragment>
             <CalculationTable 
                 wineKey='Flavanoids'
                 wineData={wineGroupsByClass}
             />
-            {/* <CalculationTable 
+            <CalculationTable 
                 wineKey='Gamma'
                 wineData={wineGroupsByClass}
-            /> */}
+            />
         </Fragment>
     );
 }

@@ -1,21 +1,12 @@
-# react-ts-template
+# react-wine-data
 
-**A Template Repository for next [ReactJS](https://reactjs.org/) with the following features -**
+## install dependencies
+```yarn```
 
--   Latest version of [ReactJS](https://reactjs.org/).
--   Well-defined folder structure
--   Enabled Typescript support
--   Pre-configured routes
--   Sample [Redux](https://redux.js.org/) & [Mobx](https://mobx.js.org/README.html) store configured
--   Dockerfiles to run the app in dev and production mode. Check `Docker-Cmds.md` file.
--   Github Actions for checking build status
+## run the app in dev
+```yarn start```
 
-`This Repository contains code for React v18.`
+## build the app
+```yarn build```
 
-I also have a [react-ts-v17](https://github.com/nishkohli96/react-ts-v17) template Repository.
-
-To upgrade your project from React v17 to 18 follow [this guide](https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html).
-
-## Support Me
-
-If you found this template helpful and saved your valuable time, consider [buying me a coffee](https://www.buymeacoffee.com/nish1896)
+![result screenshot](./src/screenshot/result.png)

@@ -1,9 +1,9 @@
 import { Fragment } from 'react';
-import { WineData, WineGroup, WineDataSet } from 'types';
+import { WineDataExtended, WineGroup, WineDataSet } from 'types';
 import { calculateMean, calculateMedian, calculateMode } from 'utils';
 
 interface CalculationTableProps {
-	wineKey: keyof WineData;
+	wineKey: keyof WineDataExtended;
 	wineData: WineGroup;
 }
 
@@ -14,7 +14,6 @@ const CalculationTable = ({ wineKey, wineData }: CalculationTableProps) => {
 	for (let key in wineData) {
 		fieldDataSet[key] = wineData[key].map((wine) => Number(wine[wineKey]));
 	}
-	console.log('fieldDataSet: ', fieldDataSet);
 
 	return (
 		<Fragment>
@@ -33,7 +32,7 @@ const CalculationTable = ({ wineKey, wineData }: CalculationTableProps) => {
 				</thead>
 				<tbody>
 					<tr className="table-data-row">
-						<td className="cell ">{wineKey} Mean</td>
+						<td className="cell header-cell">{wineKey} Mean</td>
 						{Object.values(fieldDataSet).map((vals, index) => (
 							<td className="cell" key={index}>
 								{calculateMean(vals)}
@@ -41,7 +40,7 @@ const CalculationTable = ({ wineKey, wineData }: CalculationTableProps) => {
 						))}
 					</tr>
 					<tr className="table-data-row">
-						<td className="cell ">{wineKey} Median</td>
+						<td className="cell header-cell">{wineKey} Median</td>
 						{Object.values(fieldDataSet).map((vals, index) => (
 							<td className="cell" key={index}>
 								{calculateMedian(vals)}
@@ -49,7 +48,7 @@ const CalculationTable = ({ wineKey, wineData }: CalculationTableProps) => {
 						))}
 					</tr>
 					<tr className="table-data-row">
-						<td className="cell ">{wineKey} Mode</td>
+						<td className="cell header-cell">{wineKey} Mode</td>
 						{Object.values(fieldDataSet).map((vals, index) => (
 							<td className="cell" key={index}>
 								{calculateMode(vals)}

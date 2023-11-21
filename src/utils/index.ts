@@ -1,6 +1,6 @@
-import { WineData, WineGroup, FrequencyMap } from 'types';
+import { WineData, WineDataExtended, WineGroup, FrequencyMap } from 'types';
 
-export function groupWineByClass(wines: WineData[]): WineGroup {
+export function groupWineByClass(wines: WineDataExtended[]): WineGroup {
 	let wineGroup: WineGroup = {};
 	wines.map((wine) => {
 		if (wineGroup[`${wine.Alcohol}`]) {
@@ -15,7 +15,7 @@ export function groupWineByClass(wines: WineData[]): WineGroup {
 /* Mean */
 export function calculateMean(dataSet: number[]): string {
 	const totalSum = dataSet.reduce(
-		(sum: number, value: number) => sum + value,
+		(sum: number, value: number) => sum + Number(value),
 		0
 	);
 	return (totalSum / dataSet.length).toFixed(3);
@@ -61,6 +61,7 @@ export function calculateMedian(dataSet: number[]): string {
 	).toFixed(3);
 }
 
+/** Gamma */
 export function calculateGamma(wine: WineData): string {
 	const product = Number(wine['Ash']) * Number(wine['Hue']);
 	return (product /(Number(wine['Magnesium']))).toFixed(3)

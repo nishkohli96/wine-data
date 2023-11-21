@@ -17,10 +17,11 @@ export type WineData = {
 	Hue: number;
 	'OD280/OD315 of diluted wines': number | string;
 	Unknown: number;
-	Gamma?: string
 }
 
-export type WineGroup = Record<string, WineData[]>;
+export type WineDataExtended = WineData & { Gamma: string; }
+
+export type WineGroup = Record<string, WineDataExtended[]>;
 
 export type WineDataSet = Record<string, number[]>;
 
