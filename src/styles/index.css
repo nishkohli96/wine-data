@@ -12,3 +12,35 @@ code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
 		monospace;
 }
+
+.heading {
+	margin-bottom: 1rem;
+}
+
+.table {
+	border: 1px solid silver;
+	margin-bottom: 1rem;
+	border-collapse: collapse
+}
+
+.header-row {
+	background-color: bisque;
+}
+
+.header-cell {
+	font-weight: bold;
+}
+
+.cell {
+	padding: 0.5rem;
+	min-width: 150px;
+	max-width: 250px;
+}
+
+.table-data-row:nth-child(even) {
+	background-color: #d6d2d2;
+}
+
+/* tr {
+	padding: 0.5rem
+} */

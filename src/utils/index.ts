@@ -60,3 +60,8 @@ export function calculateMedian(dataSet: number[]): string {
 		2
 	).toFixed(3);
 }
+
+export function calculateGamma(wine: WineData): string {
+	const product = Number(wine['Ash']) * Number(wine['Hue']);
+	return (product /(Number(wine['Magnesium']))).toFixed(3)
+}
